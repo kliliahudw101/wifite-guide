@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل wifite2 التقني للمبتدئين</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Tahoma', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e6e6e6;
+            line-height: 1.8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(25, 25, 45, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #00ff88;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        h2 {
+            color: #00d4ff;
+            border-right: 5px solid #00d4ff;
+            padding-right: 15px;
+            margin: 30px 0 20px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        h2:hover {
+            color: #00ff88;
+            border-right-color: #00ff88;
+        }
+
+        h3 {
+            color: #ffaa00;
+            margin: 20px 0 10px 0;
+        }
+
+        .section {
+            background: rgba(30, 30, 50, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            border-color: #00d4ff;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .command-box {
+            background: #0d0d1a;
+            border: 1px solid #00ff88;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            color: #00ff88;
+            direction: ltr;
+            text-align: left;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .command-box::before {
+            content: "$ ";
+            color: #ffaa00;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid #00ff88;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: rgba(255, 0, 0, 0.1);
+            border-left: 4px solid #ff0000;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .technical-box {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid #00d4ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .option-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .option-table th {
+            background: #00d4ff;
+            color: #0d0d1a;
+            padding: 12px;
+            text-align: right;
+        }
+
+        .option-table td {
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        .option-table tr:hover {
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .button {
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            color: #0d0d1a;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .expand-icon {
+            display: inline-block;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .expanded .expand-icon {
+            transform: rotate(90deg);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔓 دليل wifite2 التقني والتكتيكي</h1>
+        
+        <div class="warning-box" style="font-size: 1.2em; text-align: center;">
+            <strong>⚠️ تحذير قانوني وأخلاقي:</strong> هذه الأداة للاختبار المصرح به فقط. استخدامها على شبكات دون إذن صريح يعتبر جريمة في معظم الدول. هدف هذا الدليل التعليمي فقط.
+        </div>
+
+        <div class="section">
+            <h3>ما هو wifite2؟</h3>
+            <p><strong>wifite2</strong> هو أداة أتمتة لهجمات WiFi مفتوحة المصدر، تعمل كـ"سكين سويسرية" تجمع أكثر من 10 أدوات (Aircrack-ng, Reaver, Bully, Hashcat, pyrit) في واجهة واحدة ذكية. تستهدف ثغرات WEP, WPA/WPA2, WPS, وPMKID.</p>
+        </div>
+
+        <h2 onclick="toggleSection('basics')">
+            <span class="expand-icon">▶</span> الأوامر الأساسية والفلسفة
+        </h2>
+        <div id="basics" class="section hidden">
+            <div class="command-box">wifite</div>
+            <p>تشغيل وضع التفاعلي - تطلب منك اختيار الهدف والهجوم</p>
+            
+            <div class="command-box">wifite -i wlan0mon -p 30</div>
+            <p>تشغيل مباشر على واجهة wlan0mon، مهاجمة كل الأهداف بعد 30 ثانية مسح</p>
+            
+            <div class="command-box">wifite --kill</div>
+            <p>قتل جميع العمليات المتعارضة (NetworkManager, wpa_supplicant) قبل البدء</p>
+            
+            <div class="technical-box">
+                <h4>🧠 آلية العمل الداخلية:</h4>
+                <p>wifite تستخدم <strong>Aircrack-ng suite</strong> لإدارة الوضع التجميعي (monitor mode) و Airodump-ng للمسح. عند اختيار هدف، تستدعي أدوات متخصصة حسب الخوارزمية. كل أداة لديها "wrapper" داخل wifite يعالج الإدخال/الإخراج تلقائياً.</p>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('settings')">
+            <span class="expand-icon">▶</span> إعدادات المسح الاستخباري (SETTINGS)
+        </h2>
+        <div id="settings" class="section hidden">
+            <h3>🔍 اختيار الواجهة والقنوات</h3>
+            
+            <div class="section">
+                <h4>-i [interface] - التحكم في الواجهة</h4>
+                <div class="command-box">wifite -i wlan0mon</div>
+                <p>تستخدم wifite إحدى ثلاث طرق لإدارة الواجهة:</p>
+                <ul style="margin: 10px 20px; color: #00d4ff;">
+                    <li><strong>إذا لم يكن في وضع التجميع:</strong> تستخدم <code>airmon-ng start wlan0</code></li>
+                    <li><strong>إذا كان في وضع التجميع:</strong> تستخدمه مباشرة</li>
+                    <li><strong>إذا حددت -i:</strong> تجبر على استخدام تلك الواجهة حتى لو كانت غير صحيحة</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h4>-c [channel] - تحديد القنوات بدلًا من المسح الكامل</h4>
+                <div class="command-box">wifite -c 1,6,11</div>
+                <p>ماذا يغير هذا تقنيًا؟</p>
+                <p>يقلل وقت المسح من 30 ثانية إلى 3 ثوانٍ فقط. Airodump-ng يقفز بين القنوات بسرعة 5 قنوات/ثانية، لكن تحديد قنوات محددة يجعله ثابتًا على كل قناة لـ100ms فقط.</p>
+                
+                <div class="command-box">wifite -c 1-6,11</div>
+                <p>يستخدم نطاقات. مفيد عندما تعرف أن الشبكات تستخدم قنوات 1-6 في منطقتك.</p>
+            </div>
+
+            <div class="section">
+                <h4>-p [scan_time] - وضع "Pillage"</h4>
+                <div class="command-box">wifite -p 60 -inf</div>
+                <p><strong>الآلية:</strong> بعد مسح الشبكات لمدة 60 ثانية، يبدأ مهاجمة <strong>كل الهدف تلقائيًا</strong> دون توقف. -inf يجعله يعيد الهجوم إلى ما لا نهاية.</p>
+                
+                <div class="technical-box">
+                    <h4>🛡️ كيف يتجنب اكتشاف IDS:</h4>
+                    <p>wifite تستخدم تأخيرات عشوائية بين الهجمات (jitter) وتغيير MAC عشوائي (-mac) لتجنب التوقيعات. كل 5 هجمات، تنتظر فترة صمت 30-60 ثانية.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>--kill - قتل العمليات المتعارضة</h4>
+                <div class="command-box">wifite --kill</div>
+                <p>يستخدم <code>lsof | grep -E 'wlan|mon'</code> لإيجاد العمليات التي تستخدم الواجهة، ثم <code>kill -9</code> لإيقافها. هذا ضروري لأن NetworkManager يعيد وضع الواجهة إلى "managed mode" كل 5 ثوانٍ.</p>
+            </div>
+
+            <div class="section">
+                <h4>--power [min_power] - التصفية حسب قوة الإشارة</h4>
+                <div class="command-box">wifite --power -50</div>
+                <p>يمرر خيار <code>--wps --bssid</code> إلى Airodump-ng. القيمة -50 dBm تعني إشارة قوية (كلما قل الرقم، كانت الإشارة أقوى). القيمة -80 dBm تعني إشارة ضعيفة. هذا يقلل قائمة الأهداف إلى شبكات يمكن مهاجمتها بفعالية.</p>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('wep')">
+            <span class="expand-icon">▶</span> هجمات WEP - لماذا لا زالت موجودة؟
+        </h2>
+        <div id="wep" class="section hidden">
+            <h3>🔓 ثغرات WEP الأساسية</h3>
+            <p>WEP (Wired Equivalent Privacy) معطل رياضيًا بسبب:</p>
+            <ul style="margin: 10px 20px;">
+                <li>استخدام نفس المفتاح RC4 مع IVs ضعيفة (24-bit)</li>
+                <li>الـ ICV (Integrity Check Value) لا يحمي من تعديل الحزم</li>
+                <li>مفتاح 64-bit يمكن كسره بـ 25,000 IV فقط</li>
+            </ul>
+
+            <div class="section">
+                <h4>--wep - عرض شبكات WEP فقط</h4>
+                <div class="command-box">wifite --wep</div>
+                <p>يستخدم فلترة داخلية: يتحقق من علامة "Privacy: WEP" في إخراج Airodump-ng.</p>
+            </div>
+
+            <div class="section">
+                <h4>Fake Authentication ثم ARP Replay</h4>
+                <div class="command-box">wifite --wep --require-fakeauth</div>
+                <p><strong>الآلية التقنية:</strong></p>
+                <ol style="margin: 10px 20px;">
+                    <li><strong>Fake Authentication:</strong> تستخدم <code>aireplay-ng -1</code> للاتصال المزيف بـ AP. تنتظر 5 ثوانٍ لاستجابة. إذا فشلت، تنتقل إلى الهدف التالي.</li>
+                    <li><strong>ARP Replay:</strong> تستخدم <code>aireplay-ng -3</code> لتسريع جمع IVs. كل ARP request يُعاد بثه كـ 100 حزمة، مما يولد 100 IV جديد.</li>
+                    <li><strong>Cracking:</strong> كل 5,000 IV، تستخدم <code>aircrack-ng</code> لتجربة FMS وKoreK attacks.</li>
+                </ol>
+                
+                <div class="example-box">
+                    <strong>💡 تكتيك متقدم:</strong>
+                    <div class="command-box">wifite --wep --keep-ivs --no-deauths</div>
+                    <p>--keep-ivs تحتفظ بملف .ivs وترسله إلى Aircrack-ng مرة أخرى إذا فشل الهجوم أولاً. --no-deauths تتجنب إرسال deauth packets التي تحرق الوقت وتثير الانتباه.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('wpa')">
+            <span class="expand-icon">▶</span> هجمات WPA/WPA2 - Handshake Harvesting
+        </h2>
+        <div id="wpa" class="section hidden">
+            <h3>🔐 آلية Four-Way Handshake</h3>
+            <p>WPA/WPA2 تستخدم مفتاح مؤقت (PTK) مشتق من PMK (Pre-Master Key). PTK يولد من:</p>
+            <pre style="background: #0d0d1a; padding: 10px; border-radius: 5px; color: #00ff88;">
+PTK = PRF(PMK, ANonce, SNonce, AP_MAC, Client_MAC)
+            </pre>
+            <p>Four-way handshake هو المكان الوحيد الذي يظهر فيه جميع هذه المتغيرات بشكل غير مشفر!</p>
+
+            <div class="section">
+                <h4>--wpa - استهداف شبكات WPA فقط</h4>
+                <div class="command-box">wifite --wpa</div>
+                <p>يفلتر الشبكات التي تحمل علامات "WPA" أو "WPA2" في الإطار Beacon. يعيد كتابة ملف handshake فقط إذا كان حجم الملف > 30KB ويحتوي على EAPOL packets.</p>
+            </div>
+
+            <div class="section">
+                <h4>كيف تجبر العملاء على إعاء الاتصال؟</h4>
+                <div class="command-box">wifite --wpa --nodeauths</div>
+                <p><strong>Deauthentication Attack:</strong></p>
+                <ul style="margin: 10px 20px;">
+                    <li>تستخدم <code>aireplay-ng -0 1 -a [BSSID] -c [Client_MAC]</code></li>
+                    <li>ترسل 1 حزمة deauth إلى العميل المحدد</li>
+                    <li>العميل يقطع الاتصال ويعيده تلقائيًا خلال 5-10 ثوانٍ</li>
+                    <li>أثناء إعاء الاتصال، يتم التقاط Four-way handshake</li>
+                </ul>
+                
+                <div class="technical-box">
+                    <h4>🎯 لماذا لا تدوم؟</h4>
+                    <p>Deauth packets لها Sequence Number ثابت. أنظمة IDS الحديثة تكتشف أنماط Sequence Number متكررة وتبلغ عنها. wifite تحاول التمويه بتغيير Sequence Number بشكل عشوائي.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>--new-hs - تجاهل handshakes القديمة</h4>
+                <div class="command-box">wifite --wpa --new-hs</div>
+                <p>تتحقق من مجلد <code>hs/</code> وتبحث عن ملفات .cap تحمل نفس اسم BSSID. إذا وجدتها، تفترض أن المفتاح معروف وتتجاهل الهدف. هذا مفيد في مسح الشبكات الجديدة فقط.</p>
+            </div>
+
+            <div class="section">
+                <h4>--dict - اختيار كلمة المرور للكراكينغ</h4>
+                <div class="command-box">wifite --wpa --dict /usr/share/wordlists/rockyou.txt</div>
+                <p>بعد التقاط handshake، تستخدم <code>aircrack-ng -w [dict] -b [BSSID] hs/[file].cap</code>. wifite تختبر تلقائيًا 10,000 كلمة أولاً، إذا فشلت، تطلب منك اختيار هجوم آخر أو إيقاف.</p>
+            </div>
+
+            <div class="example-box">
+                <strong>💉 Attack Chain الكامل:</strong>
+                <div class="command-box">wifite --wpa -p 30 --dict custom.txt --no-pmkid</div>
+                <p>1. مسح لمدة 30 ثانية<br>
+                2. هجوم deauth على كل عميل<br>
+                3. التقاط handshakes<br>
+                4. فحص PMKID معطل (--no-pmkid)<br>
+                5. كراكينغ تلقائي باستخدام custom.txt</p>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('wps')">
+            <span class="expand-icon">▶</span> هجمات WPS - "الثغرة الذهبية"
+        </h2>
+        <div id="wps" class="section hidden">
+            <h3>🔓 آلية WPS PIN الثغرة</h3>
+            <p>WPS (Wi-Fi Protected Setup) يستخدم PIN 8 أرقام (10,000,000 احتمال). لكن:</p>
+            <ul style="margin: 10px 20px;">
+                <li>الرقم الأخير هو checksum (يُحسب من 7 أرقام)</li>
+                <li>يُقسم إلى نصفين: 4 أرقام + 3 أرقام</li>
+                <li>AP يتحقق من كل نصف بشكل منفصل</li>
+                <li><strong>النتيجة:</strong> 10^4 + 10^3 = 11,000 محاولة فقط!</li>
+            </ul>
+
+            <div class="section">
+                <h4>--wps - عرض شبكات WPS فقط</h4>
+                <div class="command-box">wifite --wps</div>
+                <p>يفحص حقل "WPS Information" في إخراج Airodump-ng. يبحث عن علامات "WPS: Enabled" ويستخرج "Manufacturer" و"Model Number" لتحديد نوع AP.</p>
+            </div>
+
+            <div class="section">
+                <h4>Pixie Dust Attack - الثغرة السحرية</h4>
+                <div class="command-box">wifite --wps --bully</div>
+                <p><strong>الآلية التقنية:</strong></p>
+                <ol style="margin: 10px 20px;">
+                    <li><strong>مصدر الضعف:</strong> بعض الرقائق (Broadcom, Ralink, Realtek) تستخدم PRNG ضعيف لتوليد nonces</li>
+                    <li><code>bully</code> أو <code>reaver</code> يستخرجان E-Nonce وR-Nonce و hashes</li>
+                    <li>يستخدم <code>pixiewps</code> لحساب PIN من هذه القيم باستخدام ثغرات PRNG</li>
+                    <li><strong>الوقت:</strong> 5-30 ثانية فقط!</li>
+                </ol>
+                
+                <div class="technical-box">
+                    <h4>🔬 الأجهزة المستهدفة:</h4>
+                    <ul>
+                        <li>Broadcom: توليد PIN من MAC address و time(NULL)</li>
+                        <li>Ralink: seed ثابت في الـ EEPROM</li>
+                        <li>Realtek: توليد من rand() بـ seed قابل للتنبؤ</li>
+                    </ul>
+                    <p>يمكن كسر ~70% من أجهزة WPS القديمة!</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>--bully vs --reaver - الفرق التقني</h4>
+                <div class="command-box">wifite --wps --reaver</div>
+                <p><strong>reaver:</strong> أقدم، أبطأ، لكنه يدعم أكثر من 100 نوع AP. يستخدم delay افتراضي 1 ثانية بين المحاولات.</p>
+                
+                <div class="command-box">wifite --wps --bully</div>
+                <p><strong>bully:</strong> أحدث، أسرع (لا توقف بين المحاولات)، يستخدم قاعدة بيانات أحدث لثغرات PRNG. يعتمد على <code>libpcap</code> مباشرة وليس <code>airodump-ng</code>، مما يجعله أخف.</p>
+                
+                <div class="example-box">
+                    <strong>💡 التكتيك الأفضل:</strong>
+                    <div class="command-box">wifite --wps --bully --ignore-locks -p 120</div>
+                    <p>--ignore-locks تستمر حتى لو قفل AP (تحاول كل 60 ثانية). AP يقفل بعد 3-5 محاولات فاشلة، لكن بعضه يعيد فتحه بعد 5 دقائق.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>--wps-only - وضع WPS الحصري</h4>
+                <div class="command-box">wifite --wps-only</div>
+                <p>تُعطل كل هجمات WPA handshake. تستخدم فقط <code>reaver -a</code> (no-nacks mode) أو <code>bully -b</code> (brute-force). هذا مهم عندما تعرف أن AP لديه WPS نشط ولا تريد إضاعة الوقت في handshake.</p>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('pmkid')">
+            <span class="expand-icon">▶</span> هجمات PMKID - "الطريق السريع"
+        </h2>
+        <div id="pmkid" class="section hidden">
+            <h3>🔑 ما هو PMKID؟</h3>
+            <p>PMKID (Pairwise Master Key Identifier) هو hash مكون من:</p>
+            <pre style="background: #0d0d1a; padding: 10px; border-radius: 5px; color: #00ff88;">
+PMKID = HMAC-SHA1(PMK, "PMK Name" + MAC_AP + MAC_Client)
+            </pre>
+            <p>ثغرة 2018: AP يبعث PMKID في الإطار الأول من 4-way handshake حتى لو لم يكن هناك عميل!</p>
+
+            <div class="section">
+                <h4>--pmkid - وضع PMKID الحصري</h4>
+                <div class="command-box">wifite --pmkid</div>
+                <p><strong>الآلية:</strong></p>
+                <ol style="margin: 10px 20px;">
+                    <li>ترسل <code>association request</code> مزيفة كعميل</li>
+                    <li>AP يرد بـ <code>association response</code> + PMKID</li>
+                    <li>تستخدم <code>hcxdumptool</code> أو <code>hcxpcaptool</code> لاستخراج hash</li>
+                    <li>تخزن الملف بصيغة <code>16800</code> لـ Hashcat</li>
+                </ol>
+                
+                <div class="technical-box">
+                    <h4>⚡ لماذا هو أسرع من handshake؟</h4>
+                    <ul>
+                        <li>لا يحتاج إلى عميل حقيقي</li>
+                        <li>محاولة واحدة تكفي (vs 4 packets للhandshake)</li>
+                        <li>لا يحتاج لـ deauth (صامت تمامًا)</li>
+                        <li>تأثيره أقل من دقيقة واحدة</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h4>--no-pmkid - تعطيل PMKID</h4>
+                <div class="command-box">wifite --no-pmkid</div>
+                <p>تجبر wifite على استخدام فقط handshake. مفيد عندما تعلم أن AP لا يرسل PMKID (معظم الأجهزة الحديثة أصلحت الثغرة).</p>
+            </div>
+
+            <div class="section">
+                <h4>--pmkid-timeout - التحكم في الانتظار</h4>
+                <div class="command-box">wifite --pmkid-timeout 60</div>
+                <p>بعد 60 ثانية بدون استجابة PMKID، تنتقل إلى هجوم handshake. القيمة الافتراضية 300 ثانية (5 دقائق) لأن بعض AP يأخذ وقتًا لتوليد PMKID.</p>
+            </div>
+
+            <div class="example-box">
+                <strong>💎 السيناريو الأمثل:</strong>
+                <div class="command-box">wifite --pmkid --pmkid-timeout 30 --no-wps</div>
+                <p>حاول PMKID لمدة 30 ثانية فقط، إذا فشل، تنتقل مباشرةً إلى handshake بدون تضييع وقت في WPS.</p>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('commands')">
+            <span class="expand-icon">▶</span> الأوامر الإضافية (COMMANDS)
+        </h2>
+        <div id="commands" class="section hidden">
+            <div class="section">
+                <h4>--cracked - عرض الأهداف المكسورة</h4>
+                <div class="command-box">wifite --cracked</div>
+                <p>يفحص مجلد <code>hs/</code> ويستخرج كل ملفات <code>.pcap</code> التي تحتوي على BSSID وكلمة المرور (إذا وجدها). يستخدم <code>aircrack-ng -e</code> لقراءة ESSID من الملف.</p>
+            </div>
+
+            <div class="section">
+                <h4>--check - فحص handshakes</h4>
+                <div class="command-box">wifite --check hs/target.cap</div>
+                <p>يستخدم <code>wpaclean</code> ثم <code>aircrack-ng</code> للتحقق من أن الملف يحتوي على:</p>
+                <ul style="margin: 10px 20px;">
+                    <li>Message 1 & 2 (enough for hashcat)</li>
+                    <li>Message 2 & 3 (enough for hashcat)</li>
+                    <li>أو الرسائل الأربعة الكاملة (أفضل للكراكينغ)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h4>--crack - عرض أوامر الكراكينغ اليدوي</h4>
+                <div class="command-box">wifite --crack</div>
+                <p>لا يكرك تلقائيًا. بدلاً من ذلك، يطبع:</p>
+                <div class="command-box" style="color: #00ff88;">
+aircrack-ng -w wordlist.txt -b 00:11:22:33:44:55 hs/target.cap<br>
+hashcat -m 22000 -a 0 hs/target.hccapx wordlist.txt
+                </div>
+                <p>مفيد عندما تريد استخدام Hashcat على GPU أو تريد التحكم في معلمات الكراكينغ.</p>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('advanced')">
+            <span class="expand-icon">▶</span> الأوامر المتقدمة والسيناريوهات
+        </h2>
+        <div id="advanced" class="section hidden">
+            <div class="section">
+                <h4>🎯 The "Silent Recon" (استكشاف صامت)</h4>
+                <div class="command-box">wifite -c 1,6,11 --clients-only --skip-crack -p 60</div>
+                <p>1. تفحص فقط قنوات 1,6,11 (أكثر القنوات استخدامًا)<br>
+                2. تعرض فقط شبكات لها عملاء (لضمان إمكانية deauth)<br>
+                3. تتجاهل الكراكينغ (تجمع فقط handshakes)<br>
+                4. بعد 60 ثانية، تتوقف وتعرض النتائج</p>
+                
+                <p><strong>النتيجة:</strong> ملف handshake لكل شبكة في مجلد hs/ دون إرسال أي حزمة هجومية واحدة!</p>
+            </div>
+
+            <div class="section">
+                <h4>💉 The "Full Assault" (الهجوم الكامل)</h4>
+                <div class="command-box">wifite --wpa --wps --pmkid -p 30 -inf -mac</div>
+                <p>1. تبدأ بـ PMKID (أسرع)<br>
+                2. إذا فشلت، تبدأ WPS (Pixie Dust)<br>
+                3. إذا قفل AP، تنتظر 5 دقائق ثم تعيد المحاولة<br>
+                4. إذا كل شيء فشل، تنهي بـ handshake<br>
+                5. تغير MAC كل 10 محاولات (--mac)<br>
+                6. تعيد كل شيء لأبد (--inf)</p>
+                
+                <p><strong>النتيجة:</strong> في يوم واحد، يمكنك اختبار 50+ AP دون تدخل يدوي!</p>
+            </div>
+
+            <div class="section">
+                <h4>🥷 The "Evasion Scan" (التهرب من IDS)</h4>
+                <div class="command-box">wifite --random-mac -t 2 --nodeauths --pmkid-timeout 300</div>
+                <p>1. تغير MAC عشوائيًا عند كل هدف (تتجنب blacklisting)<br>
+                2. تستخدم delay 2 ثوانٍ بين المحاولات (تجنب rate limiting)<br>
+                3. لا تستخدم deauth (تجنب detection)<br>
+                4. تنتظر 5 دقائق لـ PMKID قبل الاستسلام<br>
+                5. جميع handshakes تُخزن بدون كراكينغ تلقائي</p>
+                
+                <p><strong>النتيجة:</strong> يمكنك العمل في بيئة مراقبة دون إثارة أنظمة كشف معقدة مثل WIPS.</p>
+            </div>
+
+            <div class="section">
+                <h4>🎯 The "Targeted Attack" (هجوم موجه لشبكة واحدة)</h4>
+                <div class="command-box">wifite --bssid 00:11:22:33:44:55 -c 6 -p 10 --wps-only</div>
+                <p>تهجم فقط على AP محدد. مفيد عندما تعرف BSSID وترغب في التركيز.</p>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('outputs')">
+            <span class="expand-icon">▶</span> فهم المخرجات وإدارة الملفات
+        </h2>
+        <div id="outputs" class="section hidden">
+            <h3>📁 هيكلة المجلدات</h3>
+            <p>wifite تخلق بنية ملفات منظمة:</p>
+            <div class="command-box" style="color: #00ff88;">
+./hs/                      # Handshakes<br>
+./hs/[BSSID]_handshake.cap # Handshake capture<br>
+./hs/[BSSID]_pmkid.16800   # PMKID hash for hashcat<br>
+./cracked.txt              # Networks cracked<br>
+./wifite.log               # Full log
+            </div>
+
+            <h3>تنسيق ملفات الـ Hash</h3>
+            <ul style="margin: 10px 20px;">
+                <li><strong>.cap:</strong> صيغة Aircrack-ng، تستخدم مع <code>-a 2</code></li>
+                <li><strong>.hccapx:</strong> صيغة Hashcat القديمة، تستخدم مع <code>-m 2500</code></li>
+                <li><strong>.16800:</strong> صيغة PMKID Hashcat، تستخدم مع <code>-m 16800</code></li>
+                <li><strong>.22000:</strong> صيغة Hashcat الجديدة لجميع حالات WPA، تستخدم مع <code>-m 22000</code></li>
+            </ul>
+
+            <div class="technical-box">
+                <h4>🔄 التحويل التلقائي:</h4>
+                <div class="command-box">cap2hccapx hs/target.cap hs/target.hccapx</div>
+                <p>wifite تستخدم أداة cap2hccapx تلقائيًا بعد التقاط handshake. يمكنك استخدامها يدويًا لاحقًا.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="button" onclick="showAllSections()">إظهار كل الأقسام</button>
+            <button class="button" onclick="hideAllSections()">إخفاء كل الأقسام</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            const header = section.previousElementSibling;
+            
+            section.classList.toggle('hidden');
+            header.classList.toggle('expanded');
+        }
+
+        function showAllSections() {
+            document.querySelectorAll('.section').forEach(section => section.classList.remove('hidden'));
+            document.querySelectorAll('h2').forEach(header => header.classList.add('expanded'));
+        }
+
+        function hideAllSections() {
+            document.querySelectorAll('.section').forEach(section => section.classList.add('hidden'));
+            document.querySelectorAll('h2').forEach(header => header.classList.remove('expanded'));
+        }
+
+        document.querySelectorAll('.command-box').forEach(box => {
+            box.addEventListener('click', function() {
+                const text = this.textContent.replace('$ ', '');
+                navigator.clipboard.writeText(text).then(() => {
+                    this.style.background = '#00ff88';
+                    this.style.color = '#0d0d1a';
+                    setTimeout(() => {
+                        this.style.background = '#0d0d1a';
+                        this.style.color = '#00ff88';
+                    }, 500);
+                });
+            });
+        });
+
+        window.addEventListener('load', () => {
+            document.getElementById('basics').classList.remove('hidden');
+            document.querySelector('h2[onclick*="basics"]').classList.add('expanded');
+        });
+    </script>
+</body>
+</html>
